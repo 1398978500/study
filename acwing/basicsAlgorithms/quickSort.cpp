@@ -37,13 +37,17 @@ void quickSort(int arr[], int l, int r)
     int i = l - 1, j = r + 1;
 
     while (i < j) {
+        // 从左 找到大于等于num的数
         while (arr[++i] < num) { ; }
 
+        // 从右 找到小于等于num的数
         while (arr[--j] > num) { ; }
 
+        // 将找到的两数交换
         if (i < j) { swap(arr[i], arr[j]); }
-    }
+    }  // 循环结束后 将数组分为两个区间 第一个区间的数都小于等于x 第二个区间的数都大于等于x
 
+    // 递归处理 两个区间
     quickSort(arr, l, j);
     quickSort(arr, j + 1, r);
 }
