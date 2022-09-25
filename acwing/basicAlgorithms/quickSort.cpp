@@ -31,7 +31,9 @@ int arr[N];
 
 void quickSort(int arr[], int l, int r)
 {
-    if (l == r) { return; }
+    if (l == r) {
+        return;
+    }
 
     int num = arr[l + r >> 1];
     int i = l - 1, j = r + 1;
@@ -44,7 +46,9 @@ void quickSort(int arr[], int l, int r)
         while (arr[--j] > num) { ; }
 
         // 将找到的两数交换
-        if (i < j) { swap(arr[i], arr[j]); }
+        if (i < j) {
+            swap(arr[i], arr[j]);
+        }
     }  // 循环结束后 将数组分为两个区间 第一个区间的数都小于等于x 第二个区间的数都大于等于x
 
     // 递归处理 两个区间
@@ -62,5 +66,6 @@ int main(int argc, char const* argv[])
 
     for (int i = 0; i < n; i++) { cout << arr[i] << " "; }
     cout << endl;
+
     return 0;
 }

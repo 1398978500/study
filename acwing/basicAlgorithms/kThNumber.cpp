@@ -29,7 +29,9 @@ int arr[N];
 
 int kThNumber(int arr[], int l, int r, int k)
 {
-    if (l == r) { return arr[l]; }
+    if (l == r) {
+        return arr[l];
+    }
 
     int num = arr[l + r >> 1];
     int i = l - 1, j = r + 1;
@@ -42,13 +44,17 @@ int kThNumber(int arr[], int l, int r, int k)
         while (arr[--j] > num) { ; }
 
         // 将找到的两数交换
-        if (i < j) { swap(arr[i], arr[j]); }
+        if (i < j) {
+            swap(arr[i], arr[j]);
+        }
     }  // 循环结束后 将数组分为两个区间 第一个区间的数都小于等于x 第二个区间的数都大于等于x
 
     int tmp = j - l + 1;  // 第一个区间的数个数
 
     // 如果 第一个区间的数个数 大于等于 k 则第k小的数在第一个区间中
-    if (tmp >= k) { return quickSort(arr, l, j, k); }
+    if (tmp >= k) {
+        return quickSort(arr, l, j, k);
+    }
 
     // 否则在第二个区间 并且第k小的数在第二个区间变为 第k - tmp 小的数
     return quickSort(arr, j + 1, r, k - tmp);
