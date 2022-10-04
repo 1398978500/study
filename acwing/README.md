@@ -25,3 +25,5 @@ https://www.acwing.com/
 * [AcWing 800. 数组元素的目标和](basicAlgorithms/arrayTargetSum.cpp)
 * [AcWing 2816. 判断子序列](basicAlgorithms/checkSubsequence.cpp)
 
+### 位运算
+* [AcWing 801. 二进制中1的个数](basicAlgorithms/onesNumber.cpp)
