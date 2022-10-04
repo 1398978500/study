@@ -17,3 +17,9 @@ https://www.acwing.com/
 ### 前缀和与差分
 * [AcWing 795. 前缀和](basicAlgorithms/prefixSum.cpp)
 * [AcWing 796. 子矩阵的和](basicAlgorithms/submatrixesSum.cpp)
+* [AcWing 797. 差分](basicAlgorithms/difference.cpp)
+* [AcWing 798. 差分矩阵](basicAlgorithms/submatrixesDif.cpp)
+
+### 双指针
+* [AcWing 799. 最长连续不重复子序列](basicAlgorithms/longestSubsequence.cpp)
+
