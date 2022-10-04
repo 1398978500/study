@@ -23,4 +23,5 @@ https://www.acwing.com/
 ### 双指针
 * [AcWing 799. 最长连续不重复子序列](basicAlgorithms/longestSubsequence.cpp)
 * [AcWing 800. 数组元素的目标和](basicAlgorithms/arrayTargetSum.cpp)
+* [AcWing 2816. 判断子序列](basicAlgorithms/checkSubsequence.cpp)
 
