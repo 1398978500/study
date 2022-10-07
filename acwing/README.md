@@ -27,3 +27,6 @@ https://www.acwing.com/
 
 ### 位运算
 * [AcWing 801. 二进制中1的个数](basicAlgorithms/onesNumber.cpp)
+
+### 离散化
+* [AcWing 802. 区间和](basicAlgorithms/intervalSum.cpp)
