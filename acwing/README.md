@@ -30,3 +30,6 @@ https://www.acwing.com/
 
 ### 离散化
 * [AcWing 802. 区间和](basicAlgorithms/intervalSum.cpp)
+
+### 区间合并
+* [AcWing 803. 区间合并](basicAlgorithms/mergeIntervals.cpp)
