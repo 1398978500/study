@@ -33,3 +33,8 @@ https://www.acwing.com/
 
 ### 区间合并
 * [AcWing 803. 区间合并](basicAlgorithms/mergeIntervals.cpp)
+
+## dataStruct 数据结构
+
+### 单链表
+* [AcWing 826. 单链表](dataStruct/singleLink.cpp)
