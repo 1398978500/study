@@ -41,3 +41,6 @@ https://www.acwing.com/
 
 ### 双链表
 * [AcWing 827. 双链表](dataStruct/doubleLink.cpp)
+
+### 栈
+* [AcWing 828. 模拟栈](dataStruct/stack.cpp)
