@@ -44,6 +44,7 @@ https://www.acwing.com/
 
 ### 栈
 * [AcWing 828. 模拟栈](dataStruct/stack.cpp)
+* [AcWing 830. 单调栈](dataStruct/monotoneStack.cpp)
 
 ### 队列
 * [AcWing 829. 模拟队列](dataStruct/queue.cpp)
