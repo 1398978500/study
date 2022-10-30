@@ -44,3 +44,6 @@ https://www.acwing.com/
 
 ### 栈
 * [AcWing 828. 模拟栈](dataStruct/stack.cpp)
+
+### 队列
+* [AcWing 829. 模拟队列](dataStruct/queue.cpp)
