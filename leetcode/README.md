@@ -5,3 +5,6 @@ https://leetcode.cn/
 * [56. 合并区间](sort/mergeIntervals.cpp)
 * [75. 颜色分类](sort/sortColors.cpp)
 * [88. 合并两个有序数组](sort/mergeSortedArray.cpp)
+
+## 数组
+* [1. 两数之和](array/twoSum.cpp)
