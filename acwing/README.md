@@ -52,3 +52,6 @@ https://www.acwing.com/
 
 ### KMP
 * [AcWing 831. KMP字符串](dataStruct/kmp.cpp)
+
+### Trie
+* [AcWing 835. Trie字符串统计](dataStruct/trieStringNum.cpp)
