@@ -48,3 +48,4 @@ https://www.acwing.com/
 
 ### 队列
 * [AcWing 829. 模拟队列](dataStruct/queue.cpp)
+* [AcWing 154. 滑动窗口](dataStruct/slidingWindow.cpp)
