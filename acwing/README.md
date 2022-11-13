@@ -2,6 +2,8 @@
 https://www.acwing.com/
 
 ## basicAlgorithms 基础算法
+[常用代码模板1——基础算法](basicAlgorithms/README.md)
+
 ### 快速排序
 * [AcWing 785. 快速排序](basicAlgorithms/quickSort.cpp)
 * [AcWing 786. 第k个数](basicAlgorithms/kThNumber.cpp)
