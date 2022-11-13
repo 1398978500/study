@@ -55,3 +55,4 @@ https://www.acwing.com/
 
 ### Trie
 * [AcWing 835. Trie字符串统计](dataStruct/trieStringNum.cpp)
+* [AcWing 143. 最大异或对](dataStruct/maxXor.cpp)
