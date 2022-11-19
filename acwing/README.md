@@ -37,6 +37,7 @@ https://www.acwing.com/
 * [AcWing 803. 区间合并](basicAlgorithms/mergeIntervals.cpp)
 
 ## dataStruct 数据结构
+[常用代码模板2——数据结构](dataStruct/README.md)
 
 ### 单链表
 * [AcWing 826. 单链表](dataStruct/singleLink.cpp)
@@ -61,3 +62,4 @@ https://www.acwing.com/
 
 ### 并查集
 * [AcWing 836. 合并集合](dataStruct/mergeSet.cpp)
+* [AcWing 837. 连通块中点的数量](dataStruct/connectPoint.cpp)
