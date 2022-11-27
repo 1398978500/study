@@ -64,3 +64,6 @@ https://www.acwing.com/
 * [AcWing 836. 合并集合](dataStruct/mergeSet.cpp)
 * [AcWing 837. 连通块中点的数量](dataStruct/connectPoint.cpp)
 * [AcWing 240. 食物链](dataStruct/foodChain.cpp)
+
+### 堆
+*[AcWing 838. 堆排序](dataStruct/heapSort.cpp)
