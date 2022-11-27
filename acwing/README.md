@@ -67,3 +67,4 @@ https://www.acwing.com/
 
 ### 堆
 *[AcWing 838. 堆排序](dataStruct/heapSort.cpp)
+*[AcWing 839. 模拟堆](dataStruct/heap.cpp)
