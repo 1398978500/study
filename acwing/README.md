@@ -66,5 +66,8 @@ https://www.acwing.com/
 * [AcWing 240. 食物链](dataStruct/foodChain.cpp)
 
 ### 堆
-*[AcWing 838. 堆排序](dataStruct/heapSort.cpp)
-*[AcWing 839. 模拟堆](dataStruct/heap.cpp)
+* [AcWing 838. 堆排序](dataStruct/heapSort.cpp)
+* [AcWing 839. 模拟堆](dataStruct/heap.cpp)
+
+### 哈希表
+* [AcWing 840. 模拟散列表](dataStruct/hashTest.cpp)
