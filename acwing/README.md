@@ -72,3 +72,8 @@ https://www.acwing.com/
 ### 哈希表
 * [AcWing 840. 模拟散列表](dataStruct/hashTest.cpp)
 * [AcWing 841. 字符串哈希](dataStruct/strHash.cpp)
+
+## search 搜索与图论
+
+### DFS
+* [AcWing 842. 排列数字](search/numberSort.cpp)
