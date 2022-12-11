@@ -78,3 +78,6 @@ https://www.acwing.com/
 ### DFS
 * [AcWing 842. 排列数字](search/numberSort.cpp)
 * [AcWing 843. n-皇后问题](search/nEmpress.cpp)
+
+### BFS
+* [AcWing 844. 走迷宫](search/maze.cpp)
