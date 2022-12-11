@@ -81,3 +81,4 @@ https://www.acwing.com/
 
 ### BFS
 * [AcWing 844. 走迷宫](search/maze.cpp)
+* [AcWing 845. 八数码](search/eightDigit.cpp)
