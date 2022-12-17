@@ -32,3 +32,17 @@ https://leetcode.cn/
 ### 查找算法（中等）
 * [剑指 Offer 04. 二维数组中的查找](prove/findNumberIn2DArray.cpp)
 * [剑指 Offer 11. 旋转数组的最小数字](prove/minArray.cpp)
+* [剑指 Offer 50. 第一个只出现一次的字符](prove/firstUniqChar.cpp)
+
+### 搜索与回溯算法（简单）
+* [剑指 Offer 32 - I. 从上到下打印二叉树](prove/levelOrder.cpp)
+* [剑指 Offer 32 - II. 从上到下打印二叉树 II](prove/levelOrder2.cpp)
+* [剑指 Offer 32 - III. 从上到下打印二叉树 III](prove/levelOrder3.cpp)
+
+* [剑指 Offer 26. 树的子结构](prove/isSubStructure.cpp)
+* [剑指 Offer 27. 二叉树的镜像](prove/mirrorTree.cpp)
+* [剑指 Offer 28. 对称的二叉树](prove/isSymmetric.cpp)
+
+### 动态规划（简单）
+* [剑指 Offer 10- I. 斐波那契数列](prove/fib.cpp)
+* [剑指 Offer 10- II. 青蛙跳台阶问题](prove/numWays.cpp)
