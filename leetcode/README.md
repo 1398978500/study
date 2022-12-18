@@ -46,3 +46,10 @@ https://leetcode.cn/
 ### 动态规划（简单）
 * [剑指 Offer 10- I. 斐波那契数列](prove/fib.cpp)
 * [剑指 Offer 10- II. 青蛙跳台阶问题](prove/numWays.cpp)
+* [剑指 Offer 63. 股票的最大利润](prove/maxProfit.cpp)
+
+### 动态规划（中等）
+* [剑指 Offer 42. 连续子数组的最大和](prove/maxSubArray.cpp)
+* [剑指 Offer 47. 礼物的最大价值](prove/maxValue.cpp)
+
+* [剑指 Offer 46. 把数字翻译成字符串](prove/translateNum.cpp)
