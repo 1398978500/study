@@ -53,3 +53,14 @@ https://leetcode.cn/
 * [剑指 Offer 47. 礼物的最大价值](prove/maxValue.cpp)
 
 * [剑指 Offer 46. 把数字翻译成字符串](prove/translateNum.cpp)
+* [剑指 Offer 48. 最长不含重复字符的子字符串](prove/lengthOfLongestSubstring.cpp)
+
+### 双指针（简单）
+* [剑指 Offer 18. 删除链表的节点](prove/deleteNode.cpp)
+* [剑指 Offer 22. 链表中倒数第k个节点](prove/getKthFromEnd.cpp)
+
+* [剑指 Offer 25. 合并两个排序的链表](prove/mergeTwoLists.cpp)
+* [剑指 Offer 52. 两个链表的第一个公共节点](prove/getIntersectionNode.cpp)
+
+* [剑指 Offer 21. 调整数组顺序使奇数位于偶数前面](prove/exchange.cpp)
+* [剑指 Offer 57. 和为s的两个数字](prove/twoSum.cpp)
