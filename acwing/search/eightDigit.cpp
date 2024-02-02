@@ -43,6 +43,7 @@ x 4 6
 19
 */
 
+#if 0
 #include <algorithm>
 #include <iostream>
 #include <queue>
@@ -118,3 +119,67 @@ int main(int argc, char const* argv[])
 
     return 0;
 }
+#else // chatgpt优化
+
+#include <iostream>
+#include <queue>
+#include <string>
+#include <vector>
+#include <unordered_map>
+
+using namespace std;
+
+const int N = 9; // 3x3网格的总格数
+const int dirs[4][2] = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}}; // 上、右、下、左移动
+const string target = "12345678x"; // 目标状态
+
+// 预处理所有可能的状态转移
+vector<string> getNextStates(const string& state) {
+    vector<string> nextStates;
+    int index = state.find('x');
+    int x = index / 3, y = index % 3;
+    for (auto& dir : dirs) {
+        int nx = x + dir[0], ny = y + dir[1];
+        if (nx >= 0 && nx < 3 && ny >= 0 && ny < 3) {
+            string nextState = state;
+            swap(nextState[index], nextState[nx * 3 + ny]);
+            nextStates.push_back(nextState);
+        }
+    }
+    return nextStates;
+}
+
+int bfs(const string& start) {
+    if (start == target) return 0;
+    queue<string> q;
+    q.push(start);
+    unordered_map<string, int> dist; // 记录到达每个状态的最小步数
+    dist[start] = 0;
+
+    while (!q.empty()) {
+        string cur = q.front();
+        q.pop();
+        vector<string> nextStates = getNextStates(cur);
+        for (const string& nextState : nextStates) {
+            if (dist.count(nextState)) continue; // 已访问过
+            dist[nextState] = dist[cur] + 1;
+            if (nextState == target) return dist[nextState];
+            q.push(nextState);
+        }
+    }
+    return -1; // 无法到达目标状态
+}
+
+int main() {
+    string start;
+    for (int i = 0; i < N; i++) {
+        char c;
+        cin >> c;
+        start += c;
+    }
+    cout << bfs(start) << endl;
+    return 0;
+}
+
+
+#endif

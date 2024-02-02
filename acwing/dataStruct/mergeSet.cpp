@@ -29,6 +29,8 @@ Yes
 No
 Yes
 */
+
+#if 0
 #include <iostream>
 
 using namespace std;
@@ -75,3 +77,57 @@ int main(int argc, char const* argv[])
 
     return 0;
 }
+#else
+
+#include <iostream>
+
+using namespace std;
+
+const int N = 100010;
+
+int p[N], sz[N];  // p[]存储每个元素的父节点，size[]存储每个根节点对应的集合大小
+
+// 查找根节点 + 路径压缩
+int findParent(int x) {
+    if (x != p[x]) p[x] = findParent(p[x]);
+    return p[x];
+}
+
+// 按秩合并
+void unionSets(int a, int b) {
+    a = findParent(a), b = findParent(b);
+    if (a != b) {
+        if (sz[a] < sz[b]) swap(a, b); // 保证a是较大集合的根节点
+        p[b] = a;
+        sz[a] += sz[b]; // 更新集合大小
+    }
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+
+    for (int i = 1; i <= n; i++) {
+        p[i] = i;
+        sz[i] = 1; // 初始化集合大小为1
+    }
+
+    while (m--) {
+        char op;
+        int a, b;
+        cin >> op >> a >> b;
+
+        if (op == 'M') unionSets(a, b);
+        else if (op == 'Q') {
+            if (findParent(a) == findParent(b)) cout << "Yes" << endl;
+            else cout << "No" << endl;
+        }
+    }
+
+    return 0;
+}
+
+
+#endif
+
+
