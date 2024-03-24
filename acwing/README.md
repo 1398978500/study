@@ -82,3 +82,11 @@ https://www.acwing.com/
 ### BFS
 * [AcWing 844. 走迷宫](search/maze.cpp)
 * [AcWing 845. 八数码](search/eightDigit.cpp)
+
+### 树与图的深度优先遍历
+* [AcWing 846. 树的重心](search/treeCenter.cpp)
+
+### 树的广度优先遍历
+* [AcWing 847. 图中点的层次](search/pictureCenter.cpp)
+
+

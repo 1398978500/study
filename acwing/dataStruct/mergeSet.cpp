@@ -77,7 +77,7 @@ int main(int argc, char const* argv[])
 
     return 0;
 }
-#else
+#else // 按秩合并
 
 #include <iostream>
 
