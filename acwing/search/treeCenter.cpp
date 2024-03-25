@@ -62,6 +62,7 @@ void add(int a, int b) {
     e[idx] = b, ne[idx] = h[a], h[a] = idx++;
 }
 
+// 返回当前节点的父节点被删除后总节点数
 int dfs(int u) {
     //
     int res = 0;
