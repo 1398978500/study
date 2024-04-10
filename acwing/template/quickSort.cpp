@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// 类型T需要重载operator>和operator<
 template <typename T>
 void quickSort(vector<T>& vData, int l, int r) {
     if( l >= r) return;
