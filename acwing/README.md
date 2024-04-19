@@ -93,6 +93,11 @@ https://www.acwing.com/
 ### 拓扑排序
 * [AcWing 848. 有向图的拓扑序列](search/toplogicalSort.cpp)
 
+## dp 动态规划
+* [AcWing 2. 01背包问题](dp/backpack_01.cpp)
+* [AcWing 3. 完全背包问题](dp/backpackComplete.cpp)
+* [AcWing 4. 多重背包问题](dp/backpackMulti.cpp)
+
 ## 部分模板实现
 * [模板实现](template/README.md)
 
