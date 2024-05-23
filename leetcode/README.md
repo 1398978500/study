@@ -5,11 +5,14 @@ https://leetcode.cn/
 * [56. 合并区间](sort/mergeIntervals.cpp)
 * [75. 颜色分类](sort/sortColors.cpp)
 * [88. 合并两个有序数组](sort/mergeSortedArray.cpp)
+* [147. 对链表进行插入排序](sort/insertionSortList.cpp)
+* [148. 排序链表](sort/sortList.cpp)
+* [164. 最大间距](sort/maximumGap.cpp)  TODO
 * [271.存在重复元素](sort/containsDuplicate.cpp)
 
 ## 数组
 * [1. 两数之和](array/twoSum.cpp)
-
+* [4. 寻找两个正序数组的中位数](array/findMedianSortedArrays.cpp)
 
 ## 剑指Offer
 ### 字符串
