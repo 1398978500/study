@@ -7,7 +7,8 @@ https://leetcode.cn/
 * [88. 合并两个有序数组](sort/mergeSortedArray.cpp)
 * [147. 对链表进行插入排序](sort/insertionSortList.cpp)
 * [148. 排序链表](sort/sortList.cpp)
-* [164. 最大间距](sort/maximumGap.cpp)  TODO
+* [164. 最大间距](sort/maximumGap.cpp)
+* [169. 多数元素](sort/majorityElement.cpp)
 * [271.存在重复元素](sort/containsDuplicate.cpp)
 
 ## 数组

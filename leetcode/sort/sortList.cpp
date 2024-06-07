@@ -45,11 +45,15 @@ public:
             ListNode *prev = dummyHead, *curr = dummyHead->next;
             while (curr != nullptr) {
                 ListNode* head1 = curr;
-                for (int i = 1; i < subLength && curr->next != nullptr; i++) { curr = curr->next; }
+                for (int i = 1; i < subLength && curr->next != nullptr; i++) {
+                    curr = curr->next; 
+                }
                 ListNode* head2 = curr->next;
                 curr->next = nullptr;
                 curr = head2;
-                for (int i = 1; i < subLength && curr != nullptr && curr->next != nullptr; i++) { curr = curr->next; }
+                for (int i = 1; i < subLength && curr != nullptr && curr->next != nullptr; i++) {
+                    curr = curr->next;
+                }
                 ListNode* next = nullptr;
                 if (curr != nullptr) {
                     next = curr->next;
@@ -57,7 +61,9 @@ public:
                 }
                 ListNode* merged = merge(head1, head2);
                 prev->next = merged;
-                while (prev->next != nullptr) { prev = prev->next; }
+                while (prev->next != nullptr) {
+                    prev = prev->next;
+                }
                 curr = next;
             }
         }
