@@ -9,6 +9,7 @@ https://leetcode.cn/
 * [148. 排序链表](sort/sortList.cpp)
 * [164. 最大间距](sort/maximumGap.cpp)
 * [169. 多数元素](sort/majorityElement.cpp)
+* [179. 最大数](sort/largestNumber.cpp)
 * [271.存在重复元素](sort/containsDuplicate.cpp)
 
 ## 数组
