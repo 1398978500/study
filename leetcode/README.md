@@ -10,7 +10,9 @@ https://leetcode.cn/
 * [164. 最大间距](sort/maximumGap.cpp)
 * [169. 多数元素](sort/majorityElement.cpp)
 * [179. 最大数](sort/largestNumber.cpp)
-* [271.存在重复元素](sort/containsDuplicate.cpp)
+* [215. 数组中的第K个最大元素](sort/findKthLargest.cpp)
+* [217.存在重复元素](sort/containsDuplicate.cpp)
+* [229. 多数元素 II](sort/majorityElement2.cpp)
 
 ## 数组
 * [1. 两数之和](array/twoSum.cpp)
