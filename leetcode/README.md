@@ -13,7 +13,9 @@ https://leetcode.cn/
 * [215. 数组中的第K个最大元素](sort/findKthLargest.cpp)
 * [217.存在重复元素](sort/containsDuplicate.cpp)
 * [229. 多数元素 II](sort/majorityElement2.cpp)
-* [42. 有效的字母异位词](sort/isAnagram.cpp)
+* [242. 有效的字母异位词](sort/isAnagram.cpp)
+* [268. 丢失的数字](sort/missingNumber.cpp)
+* [274. H 指数](sort/hIndex.cpp) TODO
 
 ## 数组
 * [1. 两数之和](array/twoSum.cpp)
