@@ -25,20 +25,38 @@ n == citations.length
 
 #include <iostream>
 #include <vector>
+#include <map>
 
 using namespace std;
 
 class Solution {
 public:
     int hIndex(vector<int>& citations) {
-        sort(citations.begin(), citations.end());
-        
+        int iRes = 0;
+        int iLen = citations.size();
+        vector<int> vTmp(iLen + 1, 0);
+        for(int i : citations) {
+            if(i > iLen) {
+                vTmp[iLen]++;
+            }
+            else {
+                vTmp[i]++;
+            }
+        }
+
+        for(int i = iLen; i >= 0; i--) {
+            iRes += vTmp[i];
+            if(iRes >= i) {
+                return i;
+            }
+        }
+        return 0;
     }
 };
 
 int main() {
     Solution s;
-    vector<int> v{};
+    vector<int> v{1,1};
 
     cout << s.hIndex(v) << endl;; 
 
