@@ -21,50 +21,25 @@
  */
 
 #include <iostream>
-#include <map>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 class Solution {
 public:
     void wiggleSort(vector<int>& nums) {
-        map<int, int> m;
-        for(int i : nums) {
-            m[i] ++;
-        }
-
-        auto left = m.begin();
-        auto right = m.begin();
         int n = nums.size();
-        int i = 0;
-        for(auto &item : m) {
-            i += item.second;
-            if(i >= n / 2) {
-                break;
+        auto arr = nums;
+        sort(arr.begin(), arr.end());
+
+        int x = (n + 1) / 2;
+        for(int i = 0, j = x - 1, k = n - 1; i < n; i += 2, j--, k--) {
+            nums[i] = arr[j];
+            if(i + 1 < n) {
+                nums[i + 1] = arr[k];
             }
-            right++;
         }
-
-        cout << left->first << endl;
-        cout << right->first << endl;
-
-
-        for(int i = 0; i < nums.size(); i++) {
-            if(left->second <= 0) {
-                left++;
-            }
-            nums[i] = left->first;
-            left->second--;
-            i++;
-
-            if(right->second <= 0) {
-                right++;
-            }
-            nums[i] = right->first;
-            right->second--;
-        }
-
     }
 };
 
