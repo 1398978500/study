@@ -18,6 +18,7 @@ https://leetcode.cn/
 * [268. 丢失的数字](sort/missingNumber.cpp)
 * [274. H 指数](sort/hIndex.cpp)
 * [324. 摆动排序 II](sort/wiggleSort.cpp)
+* [347. 前 K 个高频元素](sort/topKFrequent.cpp)
 
 ## 数组
 * [1. 两数之和](array/twoSum.cpp)
