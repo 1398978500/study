@@ -67,7 +67,8 @@ https://www.acwing.com/
 * [AcWing 240. 食物链](dataStruct/foodChain.cpp)
 
 ### 堆
-* [AcWing 838. 堆排序](dataStruct/heapSort.cpp)
+* [AcWing 838. 堆排序](dataStruct/heapSort.cpp)(输出最小的几个数)
+* [堆排序(在vector原地排序)](dataStruct/heapSort2.cpp)
 * [AcWing 839. 模拟堆](dataStruct/heap.cpp)
 
 ### 哈希表
