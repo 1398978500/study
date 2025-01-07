@@ -1,7 +1,0 @@
-/home/acs/repo/study/practice/build/CMakeFiles/practice.dir
-/home/acs/repo/study/practice/build/CMakeFiles/edit_cache.dir
-/home/acs/repo/study/practice/build/CMakeFiles/rebuild_cache.dir
-/home/acs/repo/study/practice/build/test/CMakeFiles/ThreadPoolTest2.dir
-/home/acs/repo/study/practice/build/test/CMakeFiles/ThreadPoolTest3.dir
-/home/acs/repo/study/practice/build/test/CMakeFiles/edit_cache.dir
-/home/acs/repo/study/practice/build/test/CMakeFiles/rebuild_cache.dir
