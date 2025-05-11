@@ -91,6 +91,8 @@ bool topsort()
 }
 ```
 
+![最短路问题](.assert/最短路问题.png)
+
 ## 朴素dijkstra算法 —— 模板题 AcWing 849. Dijkstra求最短路 I
 ```c
 时间复杂是 O(n2+m)O(n2+m), nn 表示点数，mm 表示边数
