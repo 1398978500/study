@@ -94,6 +94,9 @@ https://www.acwing.com/
 ### 拓扑排序
 * [AcWing 848. 有向图的拓扑序列](search/toplogicalSort.cpp)
 
+### Dijkstra
+* [AcWing 849. Dijkstra求最短路 I](search/dijkstra1.cpp)
+
 ## dp 动态规划
 * [AcWing 2. 01背包问题](dp/backpack_01.cpp)
 * [AcWing 3. 完全背包问题](dp/backpackComplete.cpp)
