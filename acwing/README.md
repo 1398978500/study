@@ -96,6 +96,7 @@ https://www.acwing.com/
 
 ### Dijkstra
 * [AcWing 849. Dijkstra求最短路 I](search/dijkstra1.cpp)
+* [AcWing 850. Dijkstra求最短路 II](search/dijkstra2.cpp)
 
 ## dp 动态规划
 * [AcWing 2. 01背包问题](dp/backpack_01.cpp)
