@@ -1,6 +1,10 @@
 function(gen_exe test_name include_name lib_name)
     # 可执行文件
     add_executable(${test_name} ${test_name}.cpp)
+    
+    # 设置C++标准为C++14（支持make_unique等）
+    set_property(TARGET ${test_name} PROPERTY CXX_STANDARD 14)
+    set_property(TARGET ${test_name} PROPERTY CXX_STANDARD_REQUIRED ON)
 
     # 有目录则包含
     if(NOT ${include_name} EQUAL "")
@@ -28,5 +32,6 @@ endfunction()
 
 gen_exe("ThreadPoolTest2"  "" "")
 gen_exe("ThreadPoolTest3"  "" "")
+gen_exe("ThreadPoolTest4"  "" "")
 
 

@@ -7,6 +7,7 @@
 #include <functional>
 #include <memory>
 #include <chrono>
+#include <future>
 
 using namespace std;
 
@@ -60,6 +61,12 @@ private:
         size_t size() const {
             MutexLockGuard lock(mutex_);
             return queue_.size();
+        }
+        
+        // 添加 front 方法
+        T front() {
+            MutexLockGuard lock(mutex_);
+            return queue_.front();
         }
         
     private:
