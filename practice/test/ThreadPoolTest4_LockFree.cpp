@@ -18,7 +18,7 @@ using Task = function<void()>;
 
 class ThreadPool {
 private:
-    // RAII风格的锁管理器
+    // RAII风格的锁管理器（仅用于条件变量）
     class MutexLockGuard {
     public:
         explicit MutexLockGuard(pthread_mutex_t& mutex) : mutex_(mutex) {
@@ -29,49 +29,78 @@ private:
         }
     private:
         pthread_mutex_t& mutex_;
-        // 禁止拷贝
         MutexLockGuard(const MutexLockGuard&) = delete;
         MutexLockGuard& operator=(const MutexLockGuard&) = delete;
     };
 
-    // 线程安全的队列
+    // 简单的无锁队列实现（单生产者多消费者或单消费者多生产者）
+    // 注意：这是一个简化版本，真正的无锁队列需要更复杂的实现
     template<typename T>
-    class ThreadSafeQueue {
+    class LockFreeQueue {
+    private:
+        struct Node {
+            atomic<Node*> next;
+            T data;
+            
+            Node(const T& item) : next(nullptr), data(item) {}
+        };
+        
+        atomic<Node*> head_;
+        atomic<Node*> tail_;
+        
     public:
-        void push(const T& item) {
-            MutexLockGuard lock(mutex_);
-            queue_.push(item);
+        LockFreeQueue() {
+            Node* dummy = new Node(T()); // 创建哑节点
+            head_.store(dummy);
+            tail_.store(dummy);
         }
         
-        bool pop(T& item) {
-            MutexLockGuard lock(mutex_);
-            if (queue_.empty()) {
-                return false;
+        ~LockFreeQueue() {
+            while (Node* head = head_.load()) {
+                head_.store(head->next);
+                delete head;
             }
-            item = queue_.front();
-            queue_.pop();
-            return true;
+        }
+        
+        void push(const T& item) {
+            Node* newNode = new Node(item);
+            Node* prevTail = tail_.exchange(newNode);
+            prevTail->next.store(newNode);
+        }
+        
+        bool pop(T& result) {
+            while (true) {
+                Node* head = head_.load();
+                Node* next = head->next.load();
+                
+                if (next == nullptr) {
+                    return false; // 队列为空
+                }
+                
+                // 使用 CAS 操作原子性地更新头指针
+                if (head_.compare_exchange_weak(head, next)) {
+                    result = next->data;
+                    // 使用延迟删除避免 ABA 问题
+                    delete head;
+                    return true;
+                }
+                // CAS 失败，重试
+            }
         }
         
         bool empty() const {
-            MutexLockGuard lock(mutex_);
-            return queue_.empty();
+            return head_.load()->next.load() == nullptr;
         }
         
         size_t size() const {
-            MutexLockGuard lock(mutex_);
-            return queue_.size();
+            size_t count = 0;
+            Node* current = head_.load()->next.load();
+            while (current != nullptr) {
+                count++;
+                current = current->next.load();
+            }
+            return count;
         }
-        
-        // 添加 front 方法
-        T front() {
-            MutexLockGuard lock(mutex_);
-            return queue_.front();
-        }
-        
-    private:
-        mutable pthread_mutex_t mutex_ = PTHREAD_MUTEX_INITIALIZER;
-        queue<T> queue_;
     };
 
 public:
@@ -83,7 +112,7 @@ public:
             m_iThreadNum = DEFAULT_THREAD_NUM;
         }
 
-        // 初始化互斥锁和条件变量
+        // 初始化条件变量（用于线程唤醒）
         if (pthread_mutex_init(&m_mutex, nullptr) != 0) {
             throw runtime_error("Failed to initialize mutex");
         }
@@ -94,7 +123,7 @@ public:
         }
 
         // 创建线程ID数组
-        m_piPthId = make_unique<pthread_t[]>(m_iThreadNum);
+        m_piPthId.reset(new pthread_t[m_iThreadNum]);
 
         // 创建工作线程
         for (int i = 0; i < m_iThreadNum; ++i) {
@@ -136,24 +165,12 @@ public:
         
         future<ReturnType> result = task->get_future();
         
-        {
-            MutexLockGuard lock(m_mutex);
-            
-            if (m_bStop) {
-                throw runtime_error("ThreadPool is stopped");
-            }
-            
-            // 将任务包装成 void() 类型
-            m_qTask.push([task]() { (*task)(); });
-            ++m_iTaskCount;
-        }
+        // 将任务包装成 void() 类型并添加到无锁队列
+        m_qTask.push([task]() { (*task)(); });
+        ++m_iTaskCount;
         
-        // 根据队列长度决定唤醒策略
-        if (m_qTask.size() >= m_iThreadNum) {
-            pthread_cond_broadcast(&m_cond);
-        } else {
-            pthread_cond_signal(&m_cond);
-        }
+        // 唤醒工作线程
+        pthread_cond_signal(&m_cond);
         
         return result;
     }
@@ -175,10 +192,7 @@ public:
 
     // 优雅关闭线程池，等待所有任务完成
     void shutdown() {
-        {
-            MutexLockGuard lock(m_mutex);
-            m_bStop = true;
-        }
+        m_bStop = true;
         
         // 唤醒所有工作线程
         pthread_cond_broadcast(&m_cond);
@@ -208,29 +222,9 @@ private:
         while (true) {
             Task task;
             
-            {
-                MutexLockGuard lock(m_mutex);
-                
-                // 等待任务或停止信号
-                while (m_qTask.empty() && !m_bStop) {
-                    pthread_cond_wait(&m_cond, &m_mutex);
-                }
-                
-                // 检查是否需要退出
-                if (m_bStop && m_qTask.empty()) {
-                    cout << "Worker thread " << pthread_self() << " exiting..." << endl;
-                    break;
-                }
-                
-                // 获取任务
-                if (!m_qTask.empty()) {
-                    task = m_qTask.front();
-                    m_qTask.pop(task);
-                }
-            }
-            
-            // 执行任务（在锁外执行，提高并发性）
-            if (task) {
+            // 尝试从无锁队列获取任务
+            if (m_qTask.pop(task)) {
+                // 执行任务
                 try {
                     task();
                 } catch (const exception& e) {
@@ -238,15 +232,32 @@ private:
                 } catch (...) {
                     cerr << "Unknown task execution error" << endl;
                 }
+            } else {
+                // 队列为空，检查是否需要退出
+                if (m_bStop) {
+                    cout << "Worker thread " << pthread_self() << " exiting..." << endl;
+                    break;
+                }
+                
+                // 等待新任务
+                MutexLockGuard lock(m_mutex);
+                while (m_qTask.empty() && !m_bStop) {
+                    pthread_cond_wait(&m_cond, &m_mutex);
+                }
+                
+                if (m_bStop && m_qTask.empty()) {
+                    cout << "Worker thread " << pthread_self() << " exiting..." << endl;
+                    break;
+                }
             }
         }
     }
 
 private:
     atomic<bool> m_bStop;                    // 停止标志
-    ThreadSafeQueue<Task> m_qTask;           // 任务队列
-    pthread_cond_t m_cond;                   // 条件变量
-    pthread_mutex_t m_mutex;                 // 互斥锁
+    LockFreeQueue<Task> m_qTask;             // 无锁任务队列
+    pthread_cond_t m_cond;                   // 条件变量（仅用于线程唤醒）
+    pthread_mutex_t m_mutex;                 // 互斥锁（仅用于条件变量）
     int m_iThreadNum;                        // 线程数量
     unique_ptr<pthread_t[]> m_piPthId;       // 线程ID数组
     atomic<int> m_iTaskCount;                // 已完成任务计数器
@@ -266,12 +277,12 @@ int testFunctionWithReturn(int id) {
 }
 
 int main() {
-    cout << "=== ThreadPool v4 Test ===" << endl;
+    cout << "=== ThreadPool v4 LockFree Test ===" << endl;
     
     try {
         ThreadPool pool(3);
         
-        cout << "Thread pool created with " << pool.getThreadNum() << " threads" << endl;
+        cout << "LockFree thread pool created with " << pool.getThreadNum() << " threads" << endl;
         
         // 添加一些简单任务
         for (int i = 0; i < 5; ++i) {
@@ -312,9 +323,9 @@ int main() {
             cout << "Enter 'i' to add task, 'q' to quit: ";
         }
         
-        cout << "\nShutting down thread pool..." << endl;
+        cout << "\nShutting down lockfree thread pool..." << endl;
         pool.shutdown();
-        cout << "Thread pool shutdown complete." << endl;
+        cout << "Lockfree thread pool shutdown complete." << endl;
         
     } catch (const exception& e) {
         cerr << "Error: " << e.what() << endl;

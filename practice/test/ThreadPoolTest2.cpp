@@ -15,7 +15,7 @@ pthread_mutex_t mutex;
 pthread_cond_t cond;
 
 // 是否停止
-atomic<bool> g_bStop = false;
+atomic<bool> g_bStop{false};
 
 void haha(int a) {
     cout << "haha" << a << endl;
