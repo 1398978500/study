@@ -34,4 +34,4 @@ gen_exe("ThreadPoolTest2"  "" "")
 gen_exe("ThreadPoolTest3"  "" "")
 gen_exe("ThreadPoolTest4"  "" "")
 
-
+gen_exe("ThreadPoolTest" "ThreadPool" "ThreadPool")
