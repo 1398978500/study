@@ -1,0 +1,27 @@
+{
+    // VS Code 调试配置文件
+    // 按 F5 调试 a.out
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "调试 a.out",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/a.out",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "编译当前文件"
+        }
+    ]
+}

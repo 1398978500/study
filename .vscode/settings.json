@@ -1,0 +1,17 @@
+{
+    // VS Code 工作区设置文件
+    // 这些设置会覆盖用户的全局设置，但仅适用于当前项目
+    // 优先级：工作区设置 > 用户设置 > 默认设置
+    
+    // 文件自动保存设置
+    // "off": 关闭自动保存
+    // "afterDelay": 延迟后自动保存（默认 1000ms）
+    // "onFocusChange": 失去焦点时自动保存
+    // "onWindowChange": 切换窗口时自动保存
+    "files.autoSave": "afterDelay",
+    
+    // 保存时自动格式化代码
+    // true: 保存文件时自动应用格式化程序（如 clang-format）
+    // false: 手动格式化（Shift+Alt+F）
+    "editor.formatOnSave": true
+}

@@ -1,0 +1,28 @@
+{
+    // VS Code 任务配置文件
+    // 按 Ctrl+Shift+B 编译当前文件，或通过命令面板调用
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "编译当前文件",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "${file}",
+                "-o",
+                "${workspaceFolder}/a.out",
+                "-g",
+                "-std=c++17"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": ["$gcc"]
+        }
+    ]
+}

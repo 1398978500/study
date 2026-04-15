@@ -23,6 +23,7 @@ https://leetcode.cn/
 ## 数组
 * [1. 两数之和](array/twoSum.cpp)
 * [4. 寻找两个正序数组的中位数](array/findMedianSortedArrays.cpp)
+* [15. 三数之和](array/threeSum.cpp)
 
 ## 剑指Offer
 ### 字符串
