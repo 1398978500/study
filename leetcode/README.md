@@ -24,6 +24,7 @@ https://leetcode.cn/
 * [1. 两数之和](array/twoSum.cpp)
 * [4. 寻找两个正序数组的中位数](array/findMedianSortedArrays.cpp)
 * [15. 三数之和](array/threeSum.cpp)
+* [2078. 两栋颜色不同且距离最远的房子](array/maxDistance.cpp)
 
 ## 剑指Offer
 ### 字符串
