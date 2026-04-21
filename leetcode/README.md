@@ -19,6 +19,7 @@ https://leetcode.cn/
 * [274. H 指数](sort/hIndex.cpp)
 * [324. 摆动排序 II](sort/wiggleSort.cpp)
 * [347. 前 K 个高频元素](sort/topKFrequent.cpp)
+* [349. 两个数组的交集](sort/intersection.cpp)
 
 ## 数组
 * [1. 两数之和](array/twoSum.cpp)
