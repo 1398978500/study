@@ -5,6 +5,9 @@
 #include <functional>
 #include <mutex>
 #include <queue>
+#include <thread>
+#include <vector>
+#include <atomic>
 
 using Task = std::function<void()>;
 
