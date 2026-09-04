@@ -19,11 +19,14 @@ https://leetcode.cn/
 * [274. H 指数](sort/hIndex.cpp)
 * [324. 摆动排序 II](sort/wiggleSort.cpp)
 * [347. 前 K 个高频元素](sort/topKFrequent.cpp)
+* [349. 两个数组的交集](sort/intersection.cpp)
 
 ## 数组
 * [1. 两数之和](array/twoSum.cpp)
 * [4. 寻找两个正序数组的中位数](array/findMedianSortedArrays.cpp)
 * [15. 三数之和](array/threeSum.cpp)
+* [47. 全排列 II](array/permuteUnique.cpp)
+* [2078. 两栋颜色不同且距离最远的房子](array/maxDistance.cpp)
 
 ## 剑指Offer
 ### 字符串
