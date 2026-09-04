@@ -36,17 +36,9 @@ class Solution {
 public:
     string genKey(string str)
     {
-        const int num = 26;
-        string res = "";
-        int counter[num] = {};
-        for (char c : str) { counter[c - 'a']++; }
-
-        for (int i = 0; i < num; ++i) {
-            res += 'a' + i;
-            res += counter[i];
-        }
-
-        return res;
+        string key(26, 0);
+        for (char c : s) key[c - 'a']++;  // char 存 0~100 的计数，安全
+        return key;
     }
 
     vector<vector<string>> groupAnagrams(vector<string>& strs)
