@@ -32,12 +32,14 @@
 strs[i] 仅包含小写字母
  */
 
+using namespace std;
+
 class Solution {
 public:
-    string genKey(string str)
+    string genKey(const string& str)
     {
         string key(26, 0);
-        for (char c : s) key[c - 'a']++;  // char 存 0~100 的计数，安全
+        for (char c : str) key[c - 'a']++;  // char 存 0~100 的计数，安全
         return key;
     }
 
@@ -48,7 +50,7 @@ public:
         unordered_map<string, vector<string>> str_map;
         for (auto& str : strs) { str_map[genKey(str)].emplace_back(str); }
 
-        for (auto& item : str_map) { res.emplace_back(item.second); }
+        for (auto& item : str_map) { res.emplace_back(std::move(item.second)); }
 
         return res;
     }
