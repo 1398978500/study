@@ -30,6 +30,7 @@
 * [15. 三数之和](array/threeSum.cpp)
 * [47. 全排列 II](array/permuteUnique.cpp)
 * [49. 字母异位词分组](array/49.groupAnagrams.cpp)
+* [128. 最长连续序列](array/128.longestConsecutive.cpp)
 * [2078. 两栋颜色不同且距离最远的房子](array/maxDistance.cpp)
 
 ## 剑指Offer
